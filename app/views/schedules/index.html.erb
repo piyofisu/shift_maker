@@ -1,0 +1,16 @@
+<table>
+  <tr>
+    <th>スタッフ</th>
+    <% (Date.today.beginning_of_month..Date.today.end_of_month).each do |date| %>
+      <th><%= date.day %></th>
+    <% end %>
+  </tr>
+  <%# <% @staffs.each do |staff|
+    <tr>
+      <td><%= staff.name %></td>
+      <% (Date.today.beginning_of_month..Date.today.end_of_month).each do |date| %>
+        <td><!-- ここにスタッフのその日のシフト情報を入れる --></td>
+      <% end %>
+    </tr>
+  <%# <% end %> %>
+</table>
