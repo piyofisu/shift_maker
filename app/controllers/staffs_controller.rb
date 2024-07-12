@@ -1,5 +1,8 @@
 class StaffsController < ApplicationController
   
+  def index
+  end
+  
   def new
   end
 
@@ -14,5 +17,5 @@ class StaffsController < ApplicationController
 
   def destroy
   end
-  
+
 end
