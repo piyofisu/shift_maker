@@ -10,10 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_07_12_080611) do
+ActiveRecord::Schema[7.0].define(version: 2024_07_12_090648) do
   create_table "schedules", charset: "utf8mb4", force: :cascade do |t|
-    t.integer "integer", null: false
+    t.integer "shiftpattern_id", null: false
     t.date "making_date", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "staffs", charset: "utf8mb4", force: :cascade do |t|
+    t.string "name", null: false
+    t.integer "working_status_id", null: false
+    t.integer "incharge_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
