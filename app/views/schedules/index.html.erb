@@ -5,13 +5,24 @@
       <th><%= date.day %></th>
     <% end %>
   </tr>
-  <%# <% @staffs.each do |staff|
-    <tr>
-      <td><%= staff.name %></td>
-      <% (Date.today.beginning_of_month..Date.today.end_of_month).each do |date| %>
-        <td><!-- ここにスタッフのその日のシフト情報を入れる --></td>
-      <% end %>
-    </tr>
-  <%# <% end %> %>
+  <% if @staffs.empty? %>
+    <p>まだスタッフが登録されていません。</p>
+  <% else %>
+    <% @staffs.each do |staff| %>
+      <tr>
+        <td><%= staff.name %></td>
+        <% (Date.today.beginning_of_month..Date.today.end_of_month).each do |date| %>
+          <td>
+            <% shift = staff.schedules.find_by(making_date: date) %>
+            <% if shift %>
+              <%= shift.shiftpattern.value %> <!-- あなたが適切なフィールド名に変更してください -->
+            <% else %>
+              <!-- シフトが登録されていない場合の表示 -->
+            <% end %>
+          </td>
+        <% end %>
+      </tr>
+    <% end %>
+  <% end %>
 </table>
 <%= link_to 'スタッフ関連', staffs_path %>

@@ -1,4 +1,4 @@
-class ActiveHash::Shiftpattern < ActiveHash::Base
+class Shiftpattern < ActiveHash::Base
   self.data = [
     { id: 1, name: '---' },
     { id: 2, name: '9-18' },

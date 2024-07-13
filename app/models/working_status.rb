@@ -1,4 +1,4 @@
-class ActiveHash::WorkingStatus < ActiveHash::Base
+class WorkingStatus < ActiveHash::Base
   self.data = [
     { id: 1, name: '---' },
     { id: 2, name: '正社員' },
