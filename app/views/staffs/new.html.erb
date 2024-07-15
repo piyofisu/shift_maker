@@ -1,26 +1,62 @@
-スタッフ登録
-<%= form_with model: @staff, local: true do |f| %>
-  <% if f.object.errors.any? %>
-  <div>
-    <ul>
-      <% f.object.errors.full_messages.each do |message| %>
-      <li><%= message %></li>
-      <% end %>
-    </ul>
+<div class = "staff-related">
+
+  <%# 登録済スタッフ一覧・左サイドバー %>
+  <div class = "staff-lists">
+    スタッフ一覧
+    <div class = "staff-heading">
+      <div class = "staff-heading-name">名前</div>
+      <div class = "staff-heading-status">雇用形態</div>
+      <div class = "staff-heading-incharge">In Charge</div>
+    </div>
+    <% if @staffs.empty? %>
+      <p>まだスタッフが登録されていません</p>
+    <% else %>
+      <div class = "staff-table">
+        <ul class = "staff-list">
+          <% @staffs.each_with_index do |staff, index| %>
+          <li class="staff-row" id="staff-row-<%= index %>">
+            <div class = "staff-info">
+              <div class="staff-name"><%= staff.name %></div>
+              <div class="staff-status"><%= staff.working_status.name %></div>
+              <div class="staff-incharge"><%= staff.incharge ? '〇' : '×' %></div>
+            </div>
+          </li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
   </div>
-  <% end %>
-  <%# スタッフ名 %>
-  <div>名前</div>
-  <%= f.text_area :name, placeholder:"スタッフ名" %>
+  
+  <%# スタッフ登録 %>
+  <div class = "staff-registration">
+    スタッフ登録
+    <%= form_with model: @staff, local: true do |f| %>
 
-  <%# 雇用形態 %>
-  <div>雇用形態</div>
-  <%= f.collection_select(:working_status_id, WorkingStatus.all, :id, :name, {}) %>
+      <%# エラーメッセージ %>
+      <% if f.object.errors.any? %>
+      <div>
+        <ul>
+          <% f.object.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+          <% end %>
+        </ul>
+      </div>
+      <% end %>
 
-  <%# incharge %>
-  <div>In Charge</div>
-  <%= f.check_box :incharge %>
+      <%# スタッフ名 %>
+      <div>名前</div>
+      <%= f.text_area :name, placeholder:"スタッフ名" %>
 
-  <%= f.submit '登録する' %>
-  <%=link_to 'もどる', staffs_path %>
-<% end %>
+      <%# 雇用形態 %>
+      <div>雇用形態</div>
+      <%= f.collection_select(:working_status_id, WorkingStatus.all, :id, :name, {}) %>
+
+      <%# incharge %>
+      <div>In Charge</div>
+      <%= f.check_box :incharge %>
+
+      <%= f.submit '登録する' %>
+      <%=link_to 'もどる', root_path %>
+    <% end %>
+  </div>
+</div>

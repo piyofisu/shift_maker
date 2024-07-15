@@ -1,16 +1,14 @@
 class StaffsController < ApplicationController
   
-  def index
-  end
-  
   def new
+    @staffs = Staff.all
     @staff = Staff.new
   end
 
   def create
     @staff = Staff.new(staff_params)
     if @staff.save
-      redirect_to root_path
+      redirect_to new_staff_path
     else
       render :new, status: :unprocessable_entity
     end

@@ -1,0 +1,32 @@
+.staff-related {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: space-around
+}
+.staff-lists {
+  width: 20%;
+  text-align: center;
+}
+.staff-heading {
+  display: flex;
+  justify-content: space-between;
+}
+.staff-registration {
+  width: 80%;
+  text-align: center;
+}
+.staff-list {
+  padding-left:0;
+}
+.staff-row {
+  list-style:none;
+  display: inline;
+}
+.staff-info {
+  display: flex;
+  justify-content: space-between;
+}
+.staff-incharge {
+  width: 77.27px;
+}
