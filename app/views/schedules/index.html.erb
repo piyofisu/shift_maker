@@ -19,16 +19,16 @@
       <% @staffs.each do |staff| %>
         <tr>
           <td><%= staff.name %></td>
-          <% @dates.each do |date| %>
+          <%# <% @dates.each do |date| %> %>
             <td>
-              <% shift = staff.schedules.find_by(making_date: date) %>
-              <% if shift %>
-                <%= shift.shiftpattern.value %> <!-- あなたが適切なフィールド名に変更してください -->
-              <% else %>
+              <%# <% shift = staff.schedules.find_by(making_date: date) %> %>
+              <%# <% if shift %> %>
+                <%# <%= shift.shiftpattern.value %> <!-- あなたが適切なフィールド名に変更してください --> %>
+              <%# <% else %> %>
                 <!-- シフトが登録されていない場合の表示 -->
-              <% end %>
+              <%# <% end %> %>
             </td>
-          <% end %>
+          <%# <% end %> %>
         </tr>
       <% end %>
     <% end %>

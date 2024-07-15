@@ -1,1 +1,26 @@
-スタッフ登録ページ
+スタッフ登録
+<%= form_with model: @staff, local: true do |f| %>
+  <% if f.object.errors.any? %>
+  <div>
+    <ul>
+      <% f.object.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+      <% end %>
+    </ul>
+  </div>
+  <% end %>
+  <%# スタッフ名 %>
+  <div>名前</div>
+  <%= f.text_area :name, placeholder:"スタッフ名" %>
+
+  <%# 雇用形態 %>
+  <div>雇用形態</div>
+  <%= f.collection_select(:working_status_id, WorkingStatus.all, :id, :name, {}) %>
+
+  <%# incharge %>
+  <div>In Charge</div>
+  <%= f.check_box :incharge %>
+
+  <%= f.submit '登録する' %>
+  <%=link_to 'もどる', staffs_path %>
+<% end %>
