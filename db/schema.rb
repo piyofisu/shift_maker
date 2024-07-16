@@ -10,7 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_07_12_090648) do
+ActiveRecord::Schema[7.0].define(version: 2024_07_16_014652) do
+  create_table "schedule_staffs", charset: "utf8mb4", force: :cascade do |t|
+    t.bigint "staff_id", null: false
+    t.bigint "schedule_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["schedule_id"], name: "index_schedule_staffs_on_schedule_id"
+    t.index ["staff_id"], name: "index_schedule_staffs_on_staff_id"
+  end
+
   create_table "schedules", charset: "utf8mb4", force: :cascade do |t|
     t.integer "shiftpattern_id", null: false
     t.date "making_date", null: false
@@ -39,4 +48,6 @@ ActiveRecord::Schema[7.0].define(version: 2024_07_12_090648) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "schedule_staffs", "schedules"
+  add_foreign_key "schedule_staffs", "staffs"
 end
