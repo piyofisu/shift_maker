@@ -24,9 +24,17 @@
             <td>
               <% shift = staff.schedules.find_by(making_date: date) %>
               <% if shift %>
-                <%= shift.shiftpattern.name %>
+                <%= form_with model: shift do |f| %>
+                  <%= f.collection_select :shiftpattern_id, Shiftpattern.all, :id, :name %>
+                  <%= f.submit "更新" %>
+                <% end %>
               <% else %>
-                未
+                <%= form_with model: staff.schedules.build do |f| %>
+                 <%= f.hidden_field :staff_id, value: staff.id %>
+                  <%= f.hidden_field :making_date, value: date %>
+                  <%= f.collection_select :shiftpattern_id, Shiftpattern.all, :id, :name %>
+                  <%= f.submit "新規" %>
+                <% end %>
               <% end %>
             </td>
           <% end %>
@@ -35,5 +43,4 @@
     <% end %>
   </tr>
 </table>
-<%= link_to 'スタッフ関連', new_staff_path %>
-<%= link_to 'シフト作成・編集', new_schedule_path%>
+<%= link_to 'トップ', root_path%>

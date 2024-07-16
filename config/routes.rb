@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   devise_for :users
   root to: 'schedules#index'
-  resources :shedules, only: [:index]
-  resources :staffs
+  resources :schedules, only: [:index, :new, :create, :edit, :update]
+  resources :staffs, except: [:index]
 end
