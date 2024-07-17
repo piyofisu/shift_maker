@@ -1,46 +1,50 @@
-<table>
-  <th><%= Date.today.month %>月</th>
-  <tr>
-    <th>日付</th>
-    <% @dates.each do |date| %>
-      <th><%= date.day %>日</th>
-    <% end %>
-  </tr>
-  <tr>
-    <th>曜日</th>
-    <% @dates.each do |date| %>
-      <th><%= @days[date.wday] %></th>
-    <% end %>
-  </tr>
-  <tr>
-    <th>スタッフ</th>
-    <% if @staffs.empty? %>
-      <p>スタッフ未登録</p>
-    <% else %>
-      <% @staffs.each do |staff| %>
-        <tr>
-          <td><%= staff.name %></td>
-          <% @dates.each do |date| %>
-            <td>
-              <% shift = staff.schedules.find_by(making_date: date) %>
-              <% if shift %>
-                <%= form_with model: shift do |f| %>
-                  <%= f.collection_select :shiftpattern_id, Shiftpattern.all, :id, :name %>
-                  <%= f.submit "更新" %>
-                <% end %>
-              <% else %>
-                <%= form_with model: staff.schedules.build do |f| %>
-                 <%= f.hidden_field :staff_id, value: staff.id %>
-                  <%= f.hidden_field :making_date, value: date %>
-                  <%= f.collection_select :shiftpattern_id, Shiftpattern.all, :id, :name %>
-                  <%= f.submit "新規" %>
-                <% end %>
-              <% end %>
-            </td>
-          <% end %>
-        </tr>
+<div class = "new-shift">
+  <table>
+    <%# 月 %>
+    <th><%= Date.today.month %>月</th>
+
+    <tr>
+      <th>日付</th>
+      <% @dates.each do |date| %>
+        <th><%= date.day %>日</th>
       <% end %>
-    <% end %>
-  </tr>
-</table>
+    </tr>
+    <tr>
+      <th>曜日</th>
+      <% @dates.each do |date| %>
+        <th><%= @days[date.wday] %></th>
+      <% end %>
+    </tr>
+    <tr>
+      <th>スタッフ</th>
+      <% if @staffs.empty? %>
+        <p>スタッフ未登録</p>
+      <% else %>
+        <% @staffs.each do |staff| %>
+          <tr>
+            <td><%= staff.name %></td>
+            <% @dates.each do |date| %>
+              <td>
+                <% shift = staff.schedules.find_by(making_date: date) %>
+                <% if shift %>
+                  <%= form_with model: shift do |f| %>
+                    <%= f.collection_select :shiftpattern_id, Shiftpattern.all, :id, :name %>
+                    <%= f.submit "更新" %>
+                  <% end %>
+                <% else %>
+                  <%= form_with model: staff.schedules.build do |f| %>
+                  <%= f.hidden_field :staff_id, value: staff.id %>
+                    <%= f.hidden_field :making_date, value: date %>
+                    <%= f.collection_select :shiftpattern_id, Shiftpattern.all, :id, :name %>
+                    <%= f.submit "新規" %>
+                  <% end %>
+                <% end %>
+              </td>
+            <% end %>
+          </tr>
+        <% end %>
+      <% end %>
+    </tr>
+  </table>
+</div>
 <%= link_to 'トップ', root_path%>
