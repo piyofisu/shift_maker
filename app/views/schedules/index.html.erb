@@ -21,8 +21,8 @@
         <tr>
           <td><%= staff.name %></td>
           <% @dates.each do |date| %>
-            <td>
-              <% shift = staff.schedules.find_by(making_date: date) %>
+            <% shift = staff.schedules.find_by(making_date: date) %>
+            <td class = "<%= 'no-shift' unless shift %>">
               <% if shift %>
                 <%= shift.shiftpattern.name %>
               <% else %>
