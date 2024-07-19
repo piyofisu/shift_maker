@@ -23,23 +23,16 @@
         <% @staffs.each do |staff| %>
           <tr>
             <td><%= staff.name %></td>
-            <% @dates.each do |date| %>
-              <td>
-                <% shift = staff.schedules.find_by(making_date: date) %>
-                <% if shift %>
-                  <%= form_with model: shift do |f| %>
-                    <%= f.collection_select :shiftpattern_id, Shiftpattern.all, :id, :name %>
-                    <%= f.submit "更新" %>
-                  <% end %>
-                <% else %>
-                  <%= form_with model: staff.schedules.build do |f| %>
-                  <%= f.hidden_field :staff_id, value: staff.id %>
-                    <%= f.hidden_field :making_date, value: date %>
-                    <%= f.collection_select :shiftpattern_id, Shiftpattern.all, :id, :name %>
-                    <%= f.submit "新規" %>
-                  <% end %>
-                <% end %>
-              </td>
+            <%= form_with model: Schedule.new, url: schedules_path, local: true do |f| %>
+              <% @dates.each_with_index do |date, i| %>
+                <td>
+                  <% schedule = staff.schedules.find_by(making_date: date) %>
+                  <%= f.hidden_field "schedules[#{i}][id]", value: schedule&.id %>
+                  <%= f.hidden_field "schedules[#{i}][making_date]", value: date %>
+                  <%= f.collection_select "schedules[#{i}][shiftpattern_id]", Shiftpattern.all, :id, :name, selected: schedule&.shiftpattern_id %>
+                </td>
+              <% end %>
+              <td><%= f.submit "Create Schedule for #{staff.name}" %></td>
             <% end %>
           </tr>
         <% end %>
