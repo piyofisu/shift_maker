@@ -31,6 +31,8 @@ class SchedulesController < ApplicationController
   end
 
   def schedule_params
-    params.require(:schedule).permit(:shiftpattern_id, :making_date)
+    params.require(:schedule).require(:schedules).values.map do |param|
+      param.slice(:id, :shiftpattern_id, :making_date)
+    end
   end
 end

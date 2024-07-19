@@ -5,7 +5,7 @@
     スタッフ一覧
     <div class = "staff-heading">
       <div class = "staff-heading-name">名前</div>
-      <div class = "staff-heading-status">雇用形態</div>
+      <div class = "staff-heading-sex">性別</div>
       <div class = "staff-heading-incharge">In Charge</div>
     </div>
     <% if @staffs.empty? %>
@@ -17,7 +17,7 @@
           <li class="staff-row" id="staff-row-<%= index %>">
             <div class = "staff-info">
               <div class="staff-name"><%= staff.name %></div>
-              <div class="staff-status"><%= staff.working_status.name %></div>
+              <div class="staff-status"><%= staff.sex.name %></div>
               <div class="staff-incharge"><%= staff.incharge ? '〇' : '×' %></div>
             </div>
           </li>
@@ -47,9 +47,9 @@
       <div>名前</div>
       <%= f.text_area :name, placeholder:"スタッフ名" %>
 
-      <%# 雇用形態 %>
-      <div>雇用形態</div>
-      <%= f.collection_select(:working_status_id, WorkingStatus.all, :id, :name, {}) %>
+      <%# 性別 %>
+      <div>性別</div>
+      <%= f.collection_select(:sex_id, Sex.all, :id, :name, {}) %>
 
       <%# incharge %>
       <div>In Charge</div>
