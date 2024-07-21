@@ -8,7 +8,7 @@ class Shiftpattern < ActiveHash::Base
     { id: 6, name: '23-8' },
     { id: 7, name: '18-3' },
     { id: 8, name: '3-12' },
-    { id: 9, name: '休' },
+    { id: 9, name: '公休' },
     { id: 10, name: '希望休' },
     { id: 11, name: '有休' }
   ]

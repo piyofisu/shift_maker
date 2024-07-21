@@ -1,3 +1,7 @@
 .new-shift {
   width: 100vw;
 }
+
+.new-shift table {
+  width: 100%;
+}

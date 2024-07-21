@@ -12,17 +12,19 @@
       <th><%= @days[date.wday] %></th>
     <% end %>
   </tr>
-  <tr>
-    <th>スタッフ</th>
-    <% if @staffs.empty? %>
-      <p>スタッフ未登録</p>
-    <% else %>
+  <% if @staffs.empty? %>
+    <tr>
+      <td colspan="<%= @dates.count + 2 %>">スタッフが登録されていません</td>
+    </tr>
+  <% else %>
+    <tr>
+      <th>スタッフ</th>
       <% @staffs.each do |staff| %>
         <tr>
           <td><%= staff.name %></td>
           <% @dates.each do |date| %>
             <% shift = staff.schedules.find_by(making_date: date) %>
-            <td class = "<%= 'no-shift' unless shift %>">
+            <td class="<%= shift ? "shiftpattern-#{shift.shiftpattern.id}" : 'no-shift' %>">
               <% if shift %>
                 <%= shift.shiftpattern.name %>
               <% else %>
@@ -32,8 +34,8 @@
           <% end %>
         </tr>
       <% end %>
-    <% end %>
-  </tr>
+    </tr>
+  <% end %>
 </table>
 <%= link_to 'スタッフ関連', new_staff_path %>
 <%= link_to 'シフト作成・編集', new_schedule_path%>
