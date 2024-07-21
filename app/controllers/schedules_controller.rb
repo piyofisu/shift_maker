@@ -12,7 +12,7 @@ class SchedulesController < ApplicationController
   def create
     if schedule_params.all? { |param| update_or_create_schedule(param) }
       redirect_to new_schedule_path
-    else # IDが存在しない = 新規作成
+    else
       render :new, status: :unprocessable_entity
     end
   end

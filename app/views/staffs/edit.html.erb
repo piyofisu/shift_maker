@@ -16,12 +16,8 @@
   <%= f.text_area :name, placeholder:"スタッフ名" %>
 
   <%# 雇用形態 %>
-  <div>雇用形態</div>
-  <%= f.collection_select(:working_status_id, WorkingStatus.all, :id, :name, {}) %>
-
-  <%# incharge %>
-  <div>In Charge</div>
-  <%= f.check_box :incharge %>
+  <div>性別</div>
+  <%= f.collection_select(:sex_id, Sex.all, :id, :name, {}) %>
 
   <%= f.submit '編集する' %>
   <%=link_to 'もどる', staffs_path %>

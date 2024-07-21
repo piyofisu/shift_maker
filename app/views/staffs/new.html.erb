@@ -51,10 +51,6 @@
       <div>性別</div>
       <%= f.collection_select(:sex_id, Sex.all, :id, :name, {}) %>
 
-      <%# incharge %>
-      <div>In Charge</div>
-      <%= f.check_box :incharge %>
-
       <%= f.submit '登録する' %>
       <%=link_to 'もどる', root_path %>
     <% end %>
