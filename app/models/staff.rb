@@ -6,5 +6,4 @@ class Staff < ApplicationRecord
   has_many :schedules, through: :schedule_staffs
 
   validates :name, presence: true
-  validates :sex_id, numericality: {other_than: 1, message: "cant't be blank" }
 end

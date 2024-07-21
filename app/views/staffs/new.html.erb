@@ -8,16 +8,18 @@
       <div class = "staff-heading-sex">性別</div>
     </div>
     <% if @staffs.empty? %>
-      <p>スタッフ未登録</p>
+      <p>スタッフが登録されていません</p>
     <% else %>
       <div class = "staff-table">
         <ul class = "staff-list">
           <% @staffs.each_with_index do |staff, index| %>
           <li class="staff-row" id="staff-row-<%= index %>">
+            <%= link_to edit_staff_path(staff.id) do %>
             <div class = "staff-info">
               <div class="staff-name"><%= staff.name %></div>
               <div class="staff-status"><%= staff.sex.name %></div>
             </div>
+            <% end %>
           </li>
           <% end %>
         </ul>

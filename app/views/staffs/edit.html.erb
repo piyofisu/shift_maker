@@ -15,10 +15,10 @@
   <div>名前</div>
   <%= f.text_area :name, placeholder:"スタッフ名" %>
 
-  <%# 雇用形態 %>
+  <%# 性別 %>
   <div>性別</div>
   <%= f.collection_select(:sex_id, Sex.all, :id, :name, {}) %>
 
   <%= f.submit '編集する' %>
-  <%=link_to 'もどる', staffs_path %>
+  <%=link_to 'もどる', new_staff_path %>
 <% end %>
