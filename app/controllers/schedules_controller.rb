@@ -10,12 +10,9 @@ class SchedulesController < ApplicationController
   end
 
   def create
-    @schedule = Schedule.new(schedule_params)
-    @staff = Staff.find(params[:schedule][:staff_id])
-    @schedule.staffs << @staff
-    if @schedule.save
+    if schedule_params.all? { |param| update_or_create_schedule(param) }
       redirect_to new_schedule_path
-    else
+    else # IDが存在しない = 新規作成
       render :new, status: :unprocessable_entity
     end
   end
@@ -31,8 +28,18 @@ class SchedulesController < ApplicationController
   end
 
   def schedule_params
-    params.require(:schedule).require(:schedules).values.map do |param|
-      param.slice(:id, :shiftpattern_id, :making_date)
+    params.require(:schedules).values.map do |param|
+      param.slice(:id, :shiftpattern_id, :making_date, :staff_id)
+    end
+  end
+
+  def update_or_create_schedule(param)
+    if param[:id].present? # IDが存在する = 更新対象
+      schedule = Schedule.find(param[:id])
+      schedule.update(param.except(:id, :staff_id))
+    else # IDが存在しない = 新規作成
+      staff = Staff.find(param[:staff_id])
+      staff.schedules.create!(param.except(:id, :staff_id))
     end
   end
 end
