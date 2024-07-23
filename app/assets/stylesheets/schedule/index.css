@@ -35,6 +35,15 @@
 .no-shift {
   background-color: #cd5c5c
 }
+.shift-calendar {
+  text-align: center;
+}
 .calendar {
   margin: auto;
+}
+.month {
+  font-size: 36px;
+}
+.date {
+  width: 38px;
 }

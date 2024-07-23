@@ -3,11 +3,13 @@
 <%# assets/stylesheets/schedule/index.css %>
 <div class = "shift-calendar">
   <table class = "calendar">
-    <th><%= Date.today.month %>月</th>
+    <tr>
+      <th class = "month" colspan="<%= @dates.count %>"><%= Date.today.month %>月</th>
+    </tr>
     <tr>
       <th>日付</th>
       <% @dates.each do |date| %>
-        <th><%= date.day %>日</th>
+        <th calss = "date"><%= date.day %>日</th>
       <% end %>
     </tr>
     <tr>
@@ -18,7 +20,7 @@
     </tr>
     <% if @staffs.empty? %>
       <tr>
-        <td colspan="<%= @dates.count + 2 %>">スタッフが登録されていません</td>
+        <td colspan="<%= @dates.count %>">スタッフが登録されていません</td>
       </tr>
     <% else %>
       <tr>
