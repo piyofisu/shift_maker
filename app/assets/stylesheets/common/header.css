@@ -7,15 +7,13 @@ li {
 .header {
   width: 100%;
   text-align: center;
+  padding: 5px;
+  border-bottom: 5px double #926c10;
+  box-sizing: border-box;
 }
 .appname a {
-  color: white;
-  background: linear-gradient(to right,#e60000,#f39800,#fff100,#009944,#0068b7,#1d2088,#920783,#e60000) 0 / 200%;
-    height: 80px;
-    animation: 5s example4 linear infinite;
-}
-@keyframes example4{
-  100% { background-position: 200%; }
+  font-size: 50px;
+  color: #926c10;
 }
 .nav {
   display: flex;
@@ -23,10 +21,57 @@ li {
 }
 .lists-left {
   display: flex;
+  margin-left: 50px;
 }
 .lists-right {
   display: flex;
+	margin-right: 50px;
 }
 .lists-left li {
-
+  display: block;
+	text-align: center;
+	vertical-align: middle;
+	text-decoration: none;
+	width: 100px;
+	margin: 0 10px 0 0;
+	padding: 8px 16px;
+	border-radius: 100vw;
+	color: #fff;
+	background: #926c10;
+}
+.lists-left li:hover {
+	background-position: right center;
+	background-size: 200% auto;
+	-webkit-animation: pulse 2s infinite;
+	animation: shad26 1.5s infinite;
+	color: #fff;
+}
+@keyframes shad26 {
+	0% {box-shadow: 0 0 0 0 #926c10;}
+	70% {box-shadow: 0 0 0 10px rgb(39 172 217 / 0%);}
+	100% {box-shadow: 0 0 0 0 rgb(39 172 217 / 0%);}
+}
+.lists-right li {
+  display: block;
+	text-align: center;
+	vertical-align: middle;
+	text-decoration: none;
+	width: 120px;
+	margin: 0 10px 0 0;
+	padding: 8px 16px;
+	border-radius: 100vw;
+	color: #fff;
+	background: #926c10;
+}
+.lists-right li:hover {
+	background-position: right center;
+	background-size: 200% auto;
+	-webkit-animation: pulse 2s infinite;
+	animation: shad26 1.5s infinite;
+	color: #fff;
+}
+@keyframes shad26 {
+	0% {box-shadow: 0 0 0 0 #926c10;}
+	70% {box-shadow: 0 0 0 10px rgb(39 172 217 / 0%);}
+	100% {box-shadow: 0 0 0 0 rgb(39 172 217 / 0%);}
 }
