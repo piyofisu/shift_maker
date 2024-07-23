@@ -3,6 +3,12 @@
 <%# assets/stylesheets/schedule/index.css %>
 <div class = "shift-calendar">
   <table class = "calendar">
+    <colgroup>
+      <col style="width: auto;">
+      <% @dates.length.times do %> 
+        <col style="width: 47px;">
+      <% end %>
+    </colgroup>
     <tr>
       <th class = "month" colspan="<%= @dates.count %>"><%= Date.today.month %>月</th>
     </tr>
