@@ -1,26 +1,27 @@
+/* 1(---)2(9-18)3(12-21)4(13-22)5(14-23)6(23-8)7(18-3)8(3-12)9(公休)10(希望休)11(有休) */
 .shiftpattern-1 {
-  background-color: #cd5c5c;
+  background-color: #cd5c5c;  
 }
 .shiftpattern-2 {
-  background-color: #ccffff;
+  background-color: #ffff00;
 }
 .shiftpattern-3 {
-  background-color: #c4d79b;
+  background-color: #ccffff;
 }
 .shiftpattern-4 {
-  background-color: #ccffff;
+  background-color: #c4d79b;
 }
 .shiftpattern-5 {
-  background-color: #ccffff;
+  background-color: #ffc000;
 }
 .shiftpattern-6 {
-  background-color: #ccffff;
+  background-color: white;
 }
 .shiftpattern-7 {
-  background-color: #ccffff;
+  background-color: #e6b8b7;
 }
 .shiftpattern-8 {
-  background-color: #ccffff;
+  background-color: white;
 }
 .shiftpattern-9 {
   background-color: #ccffff;
@@ -31,7 +32,9 @@
 .shiftpattern-11 {
   background-color: #ccffff;
 }
-
 .no-shift {
   background-color: #cd5c5c
+}
+.calendar {
+  margin: auto;
 }

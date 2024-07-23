@@ -1,7 +1,7 @@
 <div class = "new-shift">
   <table>
     <%# 月 %>
-    <th><%= Date.today.month %>月</th>
+    <th class = "month"><%= Date.today.month %>月</th>
 
     <tr>
       <th>日付</th>
@@ -35,7 +35,7 @@
               <% end %>
             </tr>
           <% end %>
-          <td><%= f.submit "Create Schedule" %></td>
+          <td><%= f.submit "Create Shift" %></td>
         <% end %>
       <% end %>
     </tr>

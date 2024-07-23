@@ -20,7 +20,7 @@ class StaffsController < ApplicationController
 
   def update
     if @staff.update(staff_params)
-      redirect_to staff_path(@staff[:id])
+      redirect_to new_staff_path
     else
       render :edit, status: :unprocessable_entity
     end
