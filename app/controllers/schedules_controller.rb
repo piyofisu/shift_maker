@@ -23,7 +23,15 @@ class SchedulesController < ApplicationController
   private
 
   def set_calendar
-    @dates = (Date.today.beginning_of_month..Date.today.end_of_month).to_a
+    if params[:n].present?
+      @x = params[:n].to_i + 1
+    elsif params[:l].present?
+      @x = params[:l].to_i - 1
+    else
+      @x = 0
+    end
+    @day_now = Date.today.months_since(@x)
+    @dates = (@day_now.beginning_of_month..@day_now.end_of_month).to_a
     @days = ["日", "月", "火", "水", "木", "金", "土"]
   end
 

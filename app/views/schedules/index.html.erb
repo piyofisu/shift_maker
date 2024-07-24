@@ -10,7 +10,18 @@
       <% end %>
     </colgroup>
     <tr>
-      <th class = "month" colspan="<%= @dates.count %>"><%= Date.today.month %>月</th>
+      <th class = "month" colspan="<%= @dates.count + 1 %>">
+        <span class = "last-month">
+          <%= link_to(schedules_path(l: @x)) do %>
+            <%= image_tag "left-arrow2.png" %>
+          <% end %>
+        </span>
+        <%= @day_now.month %>月
+        <span class = "next-month"><%= link_to(schedules_path(n: @x)) do %>
+            <%= image_tag "right-arrow2.png" %>
+          <% end %>
+        </span>
+      </th>
     </tr>
     <tr>
       <th>日付</th>

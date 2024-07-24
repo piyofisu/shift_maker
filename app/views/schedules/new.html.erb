@@ -2,7 +2,20 @@
 <div class = "new-shift">
   <table>
     <%# 月 %>
-    <th class = "month"><%= Date.today.month %>月</th>
+    <tr>
+      <th class = "month" colspan="<%= @dates.count + 1 %>">
+        <span class = "last-month">
+          <%= link_to(new_schedule_path(l: @x)) do %>
+            <%= image_tag "left-arrow2.png" %>
+          <% end %>
+        </span>
+        <%= @day_now.month %>月
+        <span class = "next-month"><%= link_to(new_schedule_path(n: @x)) do %>
+            <%= image_tag "right-arrow2.png" %>
+          <% end %>
+        </span>
+      </th>
+    </tr>
 
     <tr>
       <th>日付</th>
@@ -42,4 +55,4 @@
     </tr>
   </table>
 </div>
-<%= link_to 'トップ', root_path%>
+<%= link_to "トップ", root_path%>

@@ -44,6 +44,10 @@
 .month {
   font-size: 36px;
 }
+.last-month, .next-month {
+  color: black;
+  margin: 0 30px;
+}
 .date {
   width: 38px;
 }
