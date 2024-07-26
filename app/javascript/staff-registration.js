@@ -1,29 +1,44 @@
-document.getElementById('add-button').addEventListener('click', function(e) {
-  e.preventDefault();
-  const elementIndex = document.querySelectorAll('.staff-form').length;
+document.getElementById('add-button').addEventListener('click', function () {
+  var staffFormWrapper = document.createElement('div');
+  var formFieldsWrapper = document.createElement('div'); // 新たな<div>を作成
+  var staffFormName = document.createElement('div');
+  var staffFormSex = document.createElement('div');
+  const elementIndex = document.querySelectorAll('.form-fields-wrapper').length; // 各formFieldsWrapperの数をカウント
 
-  // 新たなスタッフフィールドを作成
-  var newForm = document.createElement('div');
-  newForm.setAttribute('class', 'staff-form');
+  formFieldsWrapper.className = 'form-fields-wrapper'; // 新たな<div>にclassを付与
 
-  newForm.innerHTML = `
-    <div>名前</div>
-    <textarea name="staffs[${elementIndex}][name]" placeholder="スタッフ名"></textarea>
-    <div>性別</div>
-    <select name="staffs[${elementIndex}][sex_id]">
-      <option value="1">男性</option>
-      <option value="2">女性</option>
-    </select>
+  staffFormName.className = 'staff-form-name';
+  staffFormName.innerHTML = `
+    <div class="name-form">
+        <textarea name="staffs[${elementIndex}][name]" placeholder="スタッフ名"></textarea>
+    </div>
   `;
 
-  // 追加ボタンを作成し、クリックイベントに自身の削除を設定する
+  staffFormSex.className = 'staff-form-sex';
+  staffFormSex.innerHTML = `
+    <div class="sex-form">
+        <select name="staffs[${elementIndex}][sex_id]">
+            <option value="1">男性</option>
+            <option value="2">女性</option>
+        </select>
+    </div>
+  `;
+
+  // 削除ボタンを作成
   var removeButton = document.createElement('button');
   removeButton.textContent = '削除';
   removeButton.addEventListener('click', function () {
-    newForm.remove();
+    staffFormWrapper.remove();
   });
-  newForm.appendChild(removeButton);
 
-  // 新たなstaffフィールドを既存のformの最後に追加
-  document.getElementById('staff-form').appendChild(newForm);
+  // formFieldsWrapperに各要素を追加
+  formFieldsWrapper.appendChild(staffFormName);
+  formFieldsWrapper.appendChild(staffFormSex);
+
+  // staffFormWrapperにformFieldsWrapperと削除ボタンを追加
+  staffFormWrapper.appendChild(formFieldsWrapper);
+  staffFormWrapper.appendChild(removeButton);
+
+  // 新たなfieldをフォームの最後に追加
+  document.querySelector('.staff-registration-form').appendChild(staffFormWrapper);
 });

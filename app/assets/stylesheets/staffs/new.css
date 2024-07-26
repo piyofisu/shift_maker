@@ -6,6 +6,7 @@
   justify-content: space-around;
   box-sizing: border-box;
 }
+/* スタッフ一覧 */
 .staff-lists {
   text-align: center;
 }
@@ -27,20 +28,39 @@
   display: flex;
   justify-content: space-between;
 }
-.staff-registration-form {
+
+/* スタッフ登録 */
+.form-fields-wrapper {
   display: flex;
   justify-content: space-between;
+  margin: 10px;
 }
-.name-form {
-  height: 20px;
+.form-title {
+  margin-bottom: 3px;
 }
 h2 {
   font-size: 36px;
 }
+.staff-form-name {
+  margin-right: 10px;
+}
 h4 {
   font-size: 26px;
 }
+.name-form {
+  height: 24.5px;
+}
+textarea, select {
+  display: inline-block;
+  vertical-align: middle;
+  margin: 0;
+  padding: 0;
+}
 textarea {
+  height: 24px;
   resize: none;
   padding: 3px;
+}
+select{
+  height: 24px;
 }

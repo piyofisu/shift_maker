@@ -33,7 +33,7 @@
     
     <%= form_with model: @staff, local: true do |f| %>
     <h2>スタッフ登録</h2>
-    <div class = "submit"><%= f.submit '登録する' %></div>
+    
       <%# エラーメッセージ %>
       <% if f.object.errors.any? %>
       <div>
@@ -46,18 +46,21 @@
       <% end %>
 
       <div class = "staff-registration-form">
-        <%# スタッフ名 %>
-        <div class = "staff-form-name">
-          <div class = "form-title"><h4>名前</h4></div>
-          <div class = "name-form"><%= f.text_area :name, class:"name-from", id:"name-form", placeholder:"スタッフ名" %></div>
-        </div>
-        <%# 性別 %>
-        <div class = "staff-form-sex">
-          <div class = "form-title"><h4>性別</h4></div>
-          <div class = "sex-form"><%= f.collection_select(:sex_id, Sex.all, :id, :name, {}) %></div>
+        <div class = "form-fields-wrapper">
+          <%# スタッフ名 %>
+          <div class = "staff-form-name">
+            <div class = "form-title"><h4>名前</h4></div>
+            <div class = "name-form"><%= f.text_area :name, class:"name-from-text", id:"name-form", placeholder:"スタッフ名" %></div>
+          </div>
+          <%# 性別 %>
+          <div class = "staff-form-sex">
+            <div class = "form-title"><h4>性別</h4></div>
+            <div class = "sex-form"><%= f.collection_select(:sex_id, Sex.all, :id, :name, {}) %></div>
+          </div>
         </div>
       </div>
-      
+      <div id="add-button">追加</div>
+      <div class = "submit"><%= f.submit '登録する' %></div>
     <% end %>
   </div>
 </div>
