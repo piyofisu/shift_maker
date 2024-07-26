@@ -1,40 +1,40 @@
 <%= render "common/header" %>
 <div class = "new-shift">
-  <table>
-    <%# 月 %>
-    <tr>
-      <th class = "month" colspan="<%= @dates.count + 1 %>">
-        <span class = "last-month">
-          <%= link_to(new_schedule_path(l: @x)) do %>
-            <%= image_tag "left-arrow2.png" %>
-          <% end %>
-        </span>
-        <%= @day_now.month %>月
-        <span class = "next-month"><%= link_to(new_schedule_path(n: @x)) do %>
-            <%= image_tag "right-arrow2.png" %>
-          <% end %>
-        </span>
-      </th>
-    </tr>
+  <%= form_with url: schedules_path, local: true do |f| %>
+    <table>
+      <%# 月 %>
+      <tr>
+        <th class = "month" colspan="<%= @dates.count + 1 %>">
+          <span class = "last-month">
+            <%= link_to(new_schedule_path(l: @x)) do %>
+              <%= image_tag "left-arrow2.png" %>
+            <% end %>
+          </span>
+          <%= @day_now.month %>月
+          <span class = "next-month"><%= link_to(new_schedule_path(n: @x)) do %>
+              <%= image_tag "right-arrow2.png" %>
+            <% end %>
+          </span>
+        </th>
+      </tr>
 
-    <tr>
-      <th>日付</th>
-      <% @dates.each do |date| %>
-        <th><%= date.day %>日</th>
-      <% end %>
-    </tr>
-    <tr>
-      <th>曜日</th>
-      <% @dates.each do |date| %>
-        <th><%= @days[date.wday] %></th>
-      <% end %>
-    </tr>
-    <tr>
-      <th>スタッフ</th>
-      <% if @staffs.empty? %>
-        <p>スタッフ未登録</p>
-      <% else %>
-        <%= form_with url: schedules_path, local: true do |f| %>
+      <tr>
+        <th>日付</th>
+        <% @dates.each do |date| %>
+          <th><%= date.day %>日</th>
+        <% end %>
+      </tr>
+      <tr>
+        <th>曜日</th>
+        <% @dates.each do |date| %>
+          <th><%= @days[date.wday] %></th>
+        <% end %>
+      </tr>
+      <tr>
+        <th>スタッフ</th>
+        <% if @staffs.empty? %>
+          <p>スタッフ未登録</p>
+        <% else %>
           <% @staffs.each_with_index do |staff, staff_index| %>
             <tr>
               <td><%= staff.name %></td>
@@ -51,8 +51,8 @@
           <% end %>
           <td><%= f.submit "Create Shift" %></td>
         <% end %>
-      <% end %>
-    </tr>
-  </table>
+      </tr>
+    </table>
+  <% end %>
 </div>
 <%= link_to "トップ", root_path%>
