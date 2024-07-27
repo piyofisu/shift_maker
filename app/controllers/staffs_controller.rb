@@ -8,6 +8,7 @@ class StaffsController < ApplicationController
 
   def create
     @staff = Staff.new(staff_params)
+    @staffs = Staff.all
     if @staff.save
       redirect_to new_staff_path
     else
