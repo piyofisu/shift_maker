@@ -29,8 +29,8 @@ function form () {
   staffFormSex.innerHTML = `
     <div class="sex-form">
         <select name="staffs[${elementIndex}][sex_id]">
-            <option value="1">男性</option>
-            <option value="2">女性</option>
+            <option value="1">女性</option>
+            <option value="2">男性</option>
         </select>
     </div>
   `;
