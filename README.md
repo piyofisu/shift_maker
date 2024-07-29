@@ -18,7 +18,9 @@ PASS: 5688
 # 洗い出した要件
 [要件定義シート](https://docs.google.com/spreadsheets/d/165YKaxsnzBE4d8mGFGmqllZdt0CGPw0eQhtEMuGVWF0/edit?gid=1094606676#gid=1094606676)
 # 実装した機能についての画像やGIFおよびその説明
+
 # 実装予定の機能
+・現在はスタッフの複数登録機能を
 ・勤務時間帯（時間帯・色・名前）を各事業所で設定できるようにモデルを作成
 ・CSV出力
 ## 最終的な実装
@@ -32,10 +34,16 @@ PASS: 5688
 フレームワーク:Ruby on Rails
 サーバー:Render
 # ローカルでの動作方法
+以下のコマンドを順に実行
+% git clone https://github.com/piyofisu/shift_maker.git
+% cd shit_maker
+% bundle install
+% rails db:create
+% rails db:migrate
 # 工夫したポイント
 ・まずは最低限の機能の実装を目指しました。最低限とは現在社内で使用しているシフト作成用のExcelファイルと同程度の機能を持たせることです。
 要件定義に目を通してもらい、不要な項目の削除や希望する機能の確認を行いました。
 # 改善点
-・見た目の改善：より操作しやすいようにCSSで装飾
+・見た目の改善・UIの改良：より操作しやすいようにCSSで装飾
 # 制作時間
 ・2週間
