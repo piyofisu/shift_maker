@@ -35,8 +35,11 @@ class StaffsController < ApplicationController
     @staff = Staff.find(params[:id])
   end
 
+  def staffs_params
+    params.require(:staffs).permit(staff: [:name, :sex_id])
+  end
+
   def staff_params
     params.require(:staff).permit(:name, :sex_id)
   end
-
 end
