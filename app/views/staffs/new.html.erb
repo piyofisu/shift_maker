@@ -50,10 +50,12 @@
           <%# スタッフ名 %>
           <div class = "staff-form-name">
             <div class = "form-title"><h4>名前</h4></div>
+            <div class = "name-form"><%= f.text_area :name, class:"name-from-text", id:"name-form", placeholder:"スタッフ名" %></div>
           </div>
           <%# 性別 %>
           <div class = "staff-form-sex">
             <div class = "form-title"><h4>性別</h4></div>
+            <div class = "sex-form"><%= f.collection_select(:sex_id, Sex.all, :id, :name, {}) %></div>
           </div>
         </div>
       </div>

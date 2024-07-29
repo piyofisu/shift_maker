@@ -18,7 +18,10 @@ PASS: 5688
 # 洗い出した要件
 [要件定義シート](https://docs.google.com/spreadsheets/d/165YKaxsnzBE4d8mGFGmqllZdt0CGPw0eQhtEMuGVWF0/edit?gid=1094606676#gid=1094606676)
 # 実装した機能についての画像やGIFおよびその説明
-
+・スタッフの登録とトップページへの反映
+[![Image from Gyazo](https://i.gyazo.com/de36c131b70fd66b49ccd9ef8d95b01b.gif)](https://gyazo.com/de36c131b70fd66b49ccd9ef8d95b01b)
+・登録済みスタッフへのシフトの割り当て
+[![Image from Gyazo](https://i.gyazo.com/e4dca53e416f3447946d46732ce0ead9.gif)](https://gyazo.com/e4dca53e416f3447946d46732ce0ead9)
 # 実装予定の機能
 ・現在はスタッフの複数登録機能を
 ・勤務時間帯（時間帯・色・名前）を各事業所で設定できるようにモデルを作成
