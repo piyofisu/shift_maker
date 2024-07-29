@@ -37,11 +37,11 @@ PASS: 5688
 フレームワーク:Ruby on Rails
 サーバー:Render
 # ローカルでの動作方法
-以下のコマンドを順に実行
-% git clone https://github.com/piyofisu/shift_maker.git
-% cd shit_maker
-% bundle install
-% rails db:create
+以下のコマンドを順に実行  
+% git clone https://github.com/piyofisu/shift_maker.git  
+% cd shit_maker  
+% bundle install  
+% rails db:create  
 % rails db:migrate
 # 工夫したポイント
 ・まずは最低限の機能の実装を目指しました。最低限とは現在社内で使用しているシフト作成用のExcelファイルと同程度の機能を持たせることです。
