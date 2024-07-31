@@ -21,7 +21,7 @@ class StaffsController < ApplicationController
 
   def update
     if @staff.update(staff_params)
-      redirect_to new_staff_path
+      redirect_to new_staff_path, notice: '編集しました'
     else
       render :edit, status: :unprocessable_entity
     end
@@ -37,7 +37,9 @@ class StaffsController < ApplicationController
   end
 
   def staffs_params
-    params.require(:staffs).permit(staff: [:name, :sex_id])
+    params.require(:staffs).map do |staff_attributes|
+      staff_attributes.permit(:name, :sex_id)
+    end
   end
 
   def staff_params
