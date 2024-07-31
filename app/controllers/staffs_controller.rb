@@ -7,13 +7,17 @@ class StaffsController < ApplicationController
   end
 
   def create
-    @staff = Staff.new(staff_params)
+    @staff = Staff.new
     @staffs = Staff.all
-    if @staff.save
-      redirect_to new_staff_path
-    else
-      render :new, status: :unprocessable_entity
+    # スタッフの配列を取得し、各スタッフを保存する
+    staffs_params.each do |staff_attributes|
+      staff = Staff.new(staff_attributes)
+      unless staff.save
+        flash[:alert] = 'スタッフの保存に失敗しました。'
+        render :new, status: :unprocessable_entity and return
+      end
     end
+    redirect_to new_staff_path, notice: 'スタッフが正常に作成されました。'
   end
 
   def edit
@@ -21,7 +25,7 @@ class StaffsController < ApplicationController
 
   def update
     if @staff.update(staff_params)
-      redirect_to new_staff_path, notice: '編集しました'
+      redirect_to new_staff_path
     else
       render :edit, status: :unprocessable_entity
     end
@@ -37,9 +41,7 @@ class StaffsController < ApplicationController
   end
 
   def staffs_params
-    params.require(:staffs).map do |staff_attributes|
-      staff_attributes.permit(:name, :sex_id)
-    end
+    params.require(:staffs).permit!.to_h.values
   end
 
   def staff_params
