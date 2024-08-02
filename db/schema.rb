@@ -10,8 +10,8 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_07_16_014652) do
-  create_table "schedule_staffs", charset: "utf8mb4", force: :cascade do |t|
+ActiveRecord::Schema[7.0].define(version: 2024_08_02_152434) do
+  create_table "schedule_staffs", charset: "utf8", force: :cascade do |t|
     t.bigint "staff_id", null: false
     t.bigint "schedule_id", null: false
     t.datetime "created_at", null: false
@@ -20,21 +20,30 @@ ActiveRecord::Schema[7.0].define(version: 2024_07_16_014652) do
     t.index ["staff_id"], name: "index_schedule_staffs_on_staff_id"
   end
 
-  create_table "schedules", charset: "utf8mb4", force: :cascade do |t|
-    t.integer "shiftpattern_id", null: false
+  create_table "schedules", charset: "utf8", force: :cascade do |t|
     t.date "making_date", null: false
+    t.bigint "shiftpattern_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["shiftpattern_id"], name: "index_schedules_on_shiftpattern_id"
+  end
+
+  create_table "shiftpatterns", charset: "utf8", force: :cascade do |t|
+    t.string "name", null: false
+    t.time "start_time", null: false
+    t.time "end_time", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "staffs", charset: "utf8mb4", force: :cascade do |t|
+  create_table "staffs", charset: "utf8", force: :cascade do |t|
     t.string "name", null: false
     t.integer "sex_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "users", charset: "utf8mb4", force: :cascade do |t|
+  create_table "users", charset: "utf8", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "nickname", null: false
@@ -49,4 +58,5 @@ ActiveRecord::Schema[7.0].define(version: 2024_07_16_014652) do
 
   add_foreign_key "schedule_staffs", "schedules"
   add_foreign_key "schedule_staffs", "staffs"
+  add_foreign_key "schedules", "shiftpatterns"
 end
