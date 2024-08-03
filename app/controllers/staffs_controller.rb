@@ -1,5 +1,5 @@
 class StaffsController < ApplicationController
-  before_action :set_staffs, only: [:edit, :update]
+  before_action :set_staffs, only: [:edit, :update, :destroy]
   before_action :staff_index, only: [:new, :create]
 
   def new
@@ -28,6 +28,8 @@ class StaffsController < ApplicationController
   end
 
   def destroy
+    @staff.destroy
+    redirect_to new_staff_path
   end
 
   private
