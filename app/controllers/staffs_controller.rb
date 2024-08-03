@@ -1,15 +1,11 @@
 class StaffsController < ApplicationController
   before_action :set_staffs, only: [:edit, :update]
+  before_action :staff_index, only: [:new, :create]
 
   def new
-    @staffs = Staff.all
-    @staff = Staff.new
   end
 
   def create
-    @staff = Staff.new
-    @staffs = Staff.all
-    # スタッフの配列を取得し、各スタッフを保存する
     staffs_params.each do |staff_attributes|
       staff = Staff.new(staff_attributes)
       unless staff.save
@@ -35,6 +31,11 @@ class StaffsController < ApplicationController
   end
 
   private
+
+  def staff_index
+    @staff = Staff.new
+    @staffs = Staff.all
+  end
 
   def set_staffs
     @staff = Staff.find(params[:id])
