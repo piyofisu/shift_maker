@@ -1,4 +1,9 @@
 .staff-edit {
   margin-top: 20px;
   box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+}
+.staff-edit-main {
+  text-align: center;
 }
