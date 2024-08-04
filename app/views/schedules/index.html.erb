@@ -17,7 +17,8 @@
           <% end %>
         </span>
         <%= @day_now.month %>月
-        <span class = "next-month"><%= link_to(schedules_path(n: @x)) do %>
+        <span class = "next-month">
+          <%= link_to(schedules_path(n: @x)) do %>
             <%= image_tag "right-arrow2.png" %>
           <% end %>
         </span>

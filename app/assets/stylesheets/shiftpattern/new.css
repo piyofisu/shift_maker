@@ -1,0 +1,69 @@
+.shift-related {
+  width: 100%;
+  height: 100vh;
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-around;
+  box-sizing: border-box;
+}
+/* スタッフ一覧 */
+.shift-lists {
+  text-align: center;
+}
+.shift-heading {
+  display: flex;
+  justify-content: space-between;
+}
+.shift-registration {
+  text-align: center;
+}
+.shift-list {
+  padding-left:0;
+}
+.shift-row {
+  list-style:none;
+  display: inline;
+}
+.shift-info {
+  display: flex;
+  justify-content: space-between;
+}
+
+/* スタッフ登録 */
+.form-fields-wrapper {
+  display: flex;
+  justify-content: space-between;
+  margin: 10px;
+}
+.form-title {
+  margin-bottom: 3px;
+}
+h2 {
+  font-size: 36px;
+}
+.shift-form-name {
+  margin-right: 10px;
+}
+.shift-form-starttime {
+  margin-right: 10px;
+}
+h4 {
+  font-size: 26px;
+}
+.name-form {
+  height: 24.5px;
+}
+textarea, select {
+  display: inline-block;
+  vertical-align: middle;
+  margin: 0;
+  padding: 0;
+}
+textarea {
+  height: 24px;
+  resize: none;
+  padding: 3px;
+}
+select{
+  height: 24px;
+}

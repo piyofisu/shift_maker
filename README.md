@@ -31,7 +31,7 @@ PASS: 5688
 # データベース設計
 [![Image from Gyazo](https://i.gyazo.com/3ffbf361c60a6485515e099063b27fd2.png)](https://gyazo.com/3ffbf361c60a6485515e099063b27fd2)
 # 画面遷移図
-[![Image from Gyazo](https://i.gyazo.com/a93b15e0203fe5086d2dcabea65e5f06.png)](https://gyazo.com/a93b15e0203fe5086d2dcabea65e5f06)
+[![Image from Gyazo](https://i.gyazo.com/6920c3a05c0e4bca65f0ea39e76e00b7.png)](https://gyazo.com/6920c3a05c0e4bca65f0ea39e76e00b7)
 # 開発環境
 言語:Ruby
 フレームワーク:Ruby on Rails

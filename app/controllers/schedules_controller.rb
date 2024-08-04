@@ -1,12 +1,11 @@
 class SchedulesController < ApplicationController
   before_action :set_calendar, only: [:index, :new]
+  before_action :set_staffs, only: [:index, :new]
 
   def index
-    @staffs = Staff.all
   end
 
   def new
-    @staffs = Staff.all
   end
 
   def create
@@ -21,6 +20,10 @@ class SchedulesController < ApplicationController
   end
   
   private
+
+  def set_staffs
+    @staffs = Staff.all
+  end
 
   def set_calendar
     if params[:n].present?
