@@ -29,9 +29,9 @@ PASS: 5688
 ## 最終的な実装
 様々な条件を踏まえたうえで1クリックで自動作成
 # データベース設計
-[![Image from Gyazo](https://i.gyazo.com/fd3e68823c04a891b41859c1ada988ed.png)](https://gyazo.com/fd3e68823c04a891b41859c1ada988ed)
+[![Image from Gyazo](https://i.gyazo.com/3ffbf361c60a6485515e099063b27fd2.png)](https://gyazo.com/3ffbf361c60a6485515e099063b27fd2)
 # 画面遷移図
-[![Image from Gyazo](https://i.gyazo.com/ad0d993f60ce6639d075ef341886b6b8.png)](https://gyazo.com/ad0d993f60ce6639d075ef341886b6b8)
+[![Image from Gyazo](https://i.gyazo.com/a93b15e0203fe5086d2dcabea65e5f06.png)](https://gyazo.com/a93b15e0203fe5086d2dcabea65e5f06)
 # 開発環境
 言語:Ruby
 フレームワーク:Ruby on Rails
@@ -39,7 +39,7 @@ PASS: 5688
 # ローカルでの動作方法
 以下のコマンドを順に実行  
 % git clone https://github.com/piyofisu/shift_maker.git  
-% cd shit_maker  
+% cd shift_maker  
 % bundle install  
 % rails db:create  
 % rails db:migrate
