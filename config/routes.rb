@@ -3,4 +3,5 @@ Rails.application.routes.draw do
   root to: 'schedules#index'
   resources :schedules, only: [:index, :new, :create, :edit, :update]
   resources :staffs, except: [:index]
+  resources :shiftpatterns, except: [:index]
 end

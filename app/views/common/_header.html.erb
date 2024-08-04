@@ -19,6 +19,12 @@
             <span class = "lists-left-text">シフト</span>
           </li>
         <% end %>
+        <%= link_to( new_shiftpattern_path, class: "lists-left-btn") do %>
+          <li>
+            <%= image_tag "round-clock.png" %>
+            <span class = "lists-left-text">時間帯</span>
+          </li>
+        <% end %>
       </ul>
     </div>
     <div class = "nav-right">
