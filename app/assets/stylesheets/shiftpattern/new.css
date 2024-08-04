@@ -1,4 +1,4 @@
-.shift-related {
+.shiftpattern-related {
   width: 100%;
   height: 100vh;
   margin-top: 20px;
@@ -7,26 +7,37 @@
   box-sizing: border-box;
 }
 /* スタッフ一覧 */
-.shift-lists {
+.shiftpattern-lists {
   text-align: center;
 }
-.shift-heading {
+.shiftpattern-heading {
+  width: 400px;
   display: flex;
   justify-content: space-between;
 }
-.shift-registration {
+.shiftpattern-registration {
   text-align: center;
 }
-.shift-list {
+.shiftpattern-list {
   padding-left:0;
 }
-.shift-row {
+.shiftpattern-row {
   list-style:none;
   display: inline;
 }
-.shift-info {
+.shiftpattern-info {
+  width: 100%;
   display: flex;
   justify-content: space-between;
+}
+.shiftpattern-name {
+  width: 78px;
+}
+.shiftpattern-starttime .shiftpattern-endtime {
+  width: 52px;
+}
+.shiftpattern-total {
+  width: 104px;
 }
 
 /* スタッフ登録 */
@@ -41,10 +52,10 @@
 h2 {
   font-size: 36px;
 }
-.shift-form-name {
+.shiftpattern-form-name {
   margin-right: 10px;
 }
-.shift-form-starttime {
+.shiftpattern-form-starttime {
   margin-right: 10px;
 }
 h4 {

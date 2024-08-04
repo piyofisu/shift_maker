@@ -1,25 +1,28 @@
 <%= render "common/header" %>
-<div class = "shift-related">
+<div class = "shiftpattern-related">
 
   <%# 登録済スタッフ一覧・左サイドバー %>
-  <div class = "shift-lists">
+  <div class = "shiftpattern-lists">
     <h2>時間帯一覧</h2>
-    <div class = "shift-heading">
-      <div class = "shift-heading-name"><h4>勤務名</h4></div>
-      <div class = "shift-heading-sex"><h4>開始</h4></div>
-      <div class = "shift-heading-endtime"><h4>終了</h4></div>
+    <div class = "shiftpattern-heading">
+      <div class = "shiftpattern-heading-name"><h4>勤務名</h4></div>
+      <div class = "shiftpattern-heading-starttime"><h4>開始</h4></div>
+      <div class = "shiftpattern-heading-endtime"><h4>終了</h4></div>
+      <div class = "shiftpattern-heading-totaltime"><h4>労働時間</h4></div>
     </div>
     <% if @shiftpatterns.empty? %>
       <p>時間帯が登録されていません</p>
     <% else %>
-      <div class = "shift-table">
-        <ul class = "shift-list">
-          <% @shiftpatterns.each_with_index do |shift, index| %>
-          <li class="shift-row" id="shift-row-<%= index %>">
-            <%= link_to edit_shift_path(shift.id) do %>
-            <div class = "shift-info">
-              <div class="shift-name"><%= shift.name %></div>
-              <div class="shift-status"><%= shift.start_time %>-<%= shift.end_time %></div>
+      <div class = "shiftpattern-table">
+        <ul class = "shiftpattern-list">
+          <% @shiftpatterns.each_with_index do |shiftpattern, index| %>
+          <li class="shiftpattern-row" id="shiftpattern-row-<%= index %>">
+            <%= link_to edit_shiftpattern_path(shiftpattern.id) do %>
+            <div class = "shiftpattern-info">
+              <div class = "shiftpattern-name"><%= shiftpattern.name %></div>
+              <div class = "shiftpattern-starttime"><%= shiftpattern.start_time.strftime( "%H:%M" ) %></div>
+              <div class = "shiftpattern-endtime"><%= shiftpattern.end_time.strftime( "%H:%M" ) %></div>
+              <div class = "shiftpattern-total"><%= calculate_work_duration(shiftpattern.start_time, shiftpattern.end_time) %></div>
             </div>
             <% end %>
           </li>
@@ -30,7 +33,7 @@
   </div>
   
   <%# スタッフ登録 %>
-  <div class = "shift-registration">
+  <div class = "shiftpattern-registration">
     
     <%= form_with model: @shiftpattern, local: true do |f| %>
     <h2>時間帯登録</h2>
@@ -46,20 +49,20 @@
       </div>
       <% end %>
 
-      <div class = "shift-registration-form">
+      <div class = "shiftpattern-registration-form">
         <div class = "form-fields-wrapper">
           <%# 時間帯名 %>
-          <div class = "shift-form-name">
+          <div class = "shiftpattern-form-name">
             <div class = "form-title"><h4>勤務名</h4></div>
             <%= f.text_field :name, placeholder: "早番、日勤etc."%>
           </div>
           <%# 開始時間 %>
-          <div class = "shift-form-starttime">
+          <div class = "shiftpattern-form-starttime">
             <div class = "form-title"><h4>開始</h4></div>
             <%= f.time_select :start_time %>
           </div>
           <%# 終了時間 %>
-          <div class = "shift-form-endtime">
+          <div class = "shiftpattern-form-endtime">
             <div class = "form-title"><h4>終了</h4></div>
             <%= f.time_select :end_time %>
           </div>
