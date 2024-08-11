@@ -1,6 +1,6 @@
 class SchedulesController < ApplicationController
-  before_action :set_calendar, only: [:index, :new]
-  before_action :set_staffs, only: [:index, :new]
+  before_action :set_calendar, only: [:index, :new, :create]
+  before_action :set_staffs, only: [:index, :new, :create]
 
   def index
   end
