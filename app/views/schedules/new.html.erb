@@ -44,7 +44,7 @@
                   <%= f.hidden_field "schedules[#{staff_index}_#{date_index}][id]", value: schedule&.id %>
                   <%= f.hidden_field "schedules[#{staff_index}_#{date_index}][making_date]", value: date %>
                   <%= f.hidden_field "schedules[#{staff_index}_#{date_index}][staff_id]", value: staff.id %>
-                  <%= f.collection_select "schedules[#{staff_index}_#{date_index}][shiftpattern_id]", Shiftpattern.all, :id, :formatted_start_time, selected: schedule&.shiftpattern_id  %>
+                  <%= f.collection_select "schedules[#{staff_index}_#{date_index}][shiftpattern_id]", @shiftpatterns, :id, :formatted_start_time, selected: schedule.present? ? schedule.shiftpattern_id : nil %>
                 </td>
               <% end %>
             </tr>

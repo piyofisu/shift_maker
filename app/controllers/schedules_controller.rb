@@ -6,6 +6,7 @@ class SchedulesController < ApplicationController
   end
 
   def new
+    @shiftpatterns = Shiftpattern.with_default
   end
 
   def create

@@ -6,14 +6,14 @@ class Shiftpattern < ApplicationRecord
   validates :end_time,    presence: true
 
   def formatted_start_time
-    start_time.strftime("%H:%M")
+    start_time.present? ? start_time.strftime("%H:%M") : "--"
   end
 
   def formatted_end_time
-    end_time.strftime("%H:%M")
+    end_time.present? ? end_time.strftime("%H:%M") : "--"
   end
 
-  def formatted_start_time_or_default
-    start_time.present? ? formatted_start_time : "--"
+  def self.with_default
+    all.to_a.prepend(new(id: nil, start_time: "--"))
   end
 end
