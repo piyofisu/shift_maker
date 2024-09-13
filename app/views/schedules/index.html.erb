@@ -50,7 +50,7 @@
               <% shift = staff.schedules.find_by(making_date: date) %>
               <td class="<%= shift ? "shiftpattern-#{shift.shiftpattern.id}" : 'no-shift' %>">
                 <% if shift %>
-                  <%= shift.shiftpattern.name %>
+                  <%= shift.shiftpattern.start_time.strftime( "%-H:%M" ) %>
                 <% else %>
                   未
                 <% end %>

@@ -20,8 +20,8 @@
             <%= link_to edit_shiftpattern_path(shiftpattern.id) do %>
             <div class = "shiftpattern-info">
               <div class = "shiftpattern-name"><%= shiftpattern.name %></div>
-              <div class = "shiftpattern-starttime"><%= shiftpattern.start_time.strftime( "%H:%M" ) %></div>
-              <div class = "shiftpattern-endtime"><%= shiftpattern.end_time.strftime( "%H:%M" ) %></div>
+              <div class = "shiftpattern-starttime"><%= shiftpattern.start_time.strftime( "%-H:%M" ) %></div>
+              <div class = "shiftpattern-endtime"><%= shiftpattern.end_time.strftime( "%-H:%M" ) %></div>
               <div class = "shiftpattern-total"><%= calculate_work_duration(shiftpattern.start_time, shiftpattern.end_time) %></div>
             </div>
             <% end %>
