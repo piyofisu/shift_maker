@@ -1,5 +1,6 @@
 class Shiftpattern < ApplicationRecord
   has_many  :schedules
+  has_many  :requests
 
   validates :name,        presence: true
   validates :start_time,  presence: true

@@ -4,6 +4,7 @@ class Staff < ApplicationRecord
 
   has_many :schedule_staffs
   has_many :schedules, through: :schedule_staffs
+  has_many :requests
 
   validates :name, presence: true
 end
